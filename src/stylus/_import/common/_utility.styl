@@ -1,0 +1,71 @@
+.pc
+  +sp()
+    display none !important
+
+.sp
+  +pc()
+    display none !important
+
+.fit
+  font-family "object-fit: cover;"
+  height 100%
+  width 100%
+  object-fit cover
+
+.font-serif
+  font-family 'Noto Serif JP', serif
+
+.bold
+  font-weight bold
+
+.clearfix
+  clearfix()
+
+.inner
+  width 100%
+
+  +pc()
+    margin 0 auto
+    max-width rem($CONTAINER_WIDTH + $WIDTH_SPacing + $WIDTH_SPacing)
+    padding 0 rem($WIDTH_SPacing)
+
+  +sp()
+    padding 0 rem($WIDTH_SPacing_sp)
+
+// Margin, Padding .mt20 .mt20-pc .mt20-sp
+props = {
+  mt: margin-top
+  mr: margin-right
+  mb: margin-bottom
+  ml: margin-left
+  pt: padding-top
+  pr: padding-right
+  pb: padding-bottom
+  pl: padding-left
+}
+
+for i in (0..20)
+  for name, prop in props
+    .{name}{i * 5}
+      {prop} (0.5rem * i) !important
+
+    +pc()
+      .{name}{i * 5}-pc
+        {prop} (0.5rem * i) !important
+
+    +sp()
+      .{name}{i * 5}-sp
+        {prop} (0.5rem * i) !important
+
+// Width col-10p col-10p-pc col-10p-sp
+for i in (0..100)
+  .col-{i}p
+    width: 1% * i
+
+  +pc()
+    .col-{i}p-pc
+      width: 1% * i
+
+  +sp()
+    .col-{i}p-sp
+      width: 1% * i

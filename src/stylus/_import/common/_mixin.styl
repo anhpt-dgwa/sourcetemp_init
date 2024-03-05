@@ -1,0 +1,50 @@
+// Function
+pc()
+  @media (min-width: ($WIDTH_SP + 1)px)
+    {block}
+
+tab()
+  @media (min-width: ($WIDTH_SP + 1)px) and (max-width: ($tab)px)
+    {block}
+
+sp()
+  @media (max-width: ($WIDTH_SP)px)
+    {block}
+
+// Mixin
+fz(fz, lh = null, fw = null)
+  font-size (fz/10) rem
+  if lh != null
+    line-height (lh/fz)
+  if fw != null
+    font-weight fw
+
+ls(ls = 0)
+  letter-spacing (ls/1000) em
+
+per(n, w)
+  percentage((n / w))
+
+vw(n, w = 750)
+  ((n / w) * 100) vw
+
+vw-tab(n, w = 1080)
+  ((n / w) * 100) vw
+
+rem(w = 10)
+  (w / 10) rem
+
+clearfix()
+  &::before,
+  &::after
+    content ''
+    display block
+
+  &::after
+    clear both
+
+nthLoad(num = 5)
+  +pc()
+    for i in (2..num)
+      &:nth-child({i})
+        animation-delay 0.15s * (i - 1) !important

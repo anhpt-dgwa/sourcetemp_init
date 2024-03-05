@@ -1,0 +1,80 @@
+/* common
+============================================ */
+html
+  font-size (10/16*100) %
+
+  +tab()
+    font-size vw-tab(10)
+
+  +sp()
+    font-size vw(10)
+
+body
+  font-family $gothic
+  fz($fz_pc, 24, 500)
+  color $COLOR_BASE
+  overflow-wrap break-word
+  overflow-y scroll
+  ls(0)
+
+  +sp()
+    fz($fz_sp, 40)
+
+  &.no-scroll
+    +sp
+      overflow hidden
+
+  &.is-fixed
+    overflow hidden
+
+img
+  max-width 100%
+  height auto
+  vertical-align bottom
+
+sup
+  font-size 60%
+  vertical-align super
+
+a
+  color inherit
+  text-decoration none
+  transition-duration $transition
+
+  &:hover
+    +pc()
+      text-decoration none
+      opacity $OPACITY_HOVER
+
+  &:focus
+    outline none
+    text-decoration none
+
+ul,
+ol
+  margin 0
+  padding 0
+
+  li
+    list-style none
+
+figure
+  margin 0
+  padding 0
+  line-height 0
+
+  img
+    width 100%
+
+.list-anm
+  nthLoad(5)
+
+html.js-inview
+  .js-effect
+    opacity 0
+    visibility hidden
+    transition $transition
+
+    &.is-show
+      opacity 1
+      visibility visible
